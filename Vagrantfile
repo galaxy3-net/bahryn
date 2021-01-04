@@ -26,8 +26,8 @@ Vagrant.configure("2") do |config|
     	virtualbox__intnet: "metasploitable3",
     	nic_type: "virtio"
 
-#    pentester.vm.provider "virtualbox" do |v|
-#      v.name = "Tatttoine (ms3-ub1404)"
+    pentester.vm.provider "virtualbox" do |v|
+      v.name = "Bahryn (shellshock)"
 #      v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
 #      v.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
 #      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
 #      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
-#    end
+    end
   end
 
 end
