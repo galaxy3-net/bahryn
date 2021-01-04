@@ -10,6 +10,10 @@
 Vagrant.configure("2") do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
+  config.trigger.after :up do |trigger|
+  	trigger.info = "ifconfig ..."
+  end
+
   config.vm.define "ub1404" do |pentester|
     pentester.vm.box = "galaxy3/bahryn"
     pentester.vm.box_version = "2021.01.04-0851"
