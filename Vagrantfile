@@ -13,9 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.define "ub1404" do |pentester|
     pentester.vm.box = "galaxy3/bahryn"
     pentester.vm.box_version = "2021.01.04-0851"
-    pentester.vm.hostname = "tattoine"
+    # pentester.vm.hostname = "tattoine"
     pentester.ssh.username = 'vagrant'
-    pentester.ssh.password = 'vagrant'
+    pentester.ssh.password =
 
     pentester.vbguest.auto_update = false
     pentester.ssh.insert_key = false
@@ -42,6 +42,20 @@ Vagrant.configure("2") do |config|
 #      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
 #      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
     end
+    config.vm.provision "shell", inline: <<-SHELL
+    ifconfig eth0 10.55.56.52 netmask 255.255.255.0 up
+     #tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+     #/usr/local/bin/ready
+     #/usr/local/bin/install_pkgs
+     #/usr/local/bin/pull_repos
+     #iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+     #iptables -A INPUT -p tcp --dport 3389 -m
+   #config.vm.provision "shell", inline: <<-SHELL state --state NEW -j ACCEPT
+
+    # setup_xrdp
+    # setup_vnc
+    ls -l /home/vagrant
+SHELL
   end
 
 end
