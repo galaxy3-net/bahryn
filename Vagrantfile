@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
     pentester.vm.box = "galaxy3/bahryn"
     pentester.vm.box_version = "2021.01.04-0851"
     # pentester.vm.hostname = "tattoine"
-    pentester.ssh.username = 'pentesterlab'
-    pentester.ssh.password = \
+    #pentester.ssh.username = 'pentesterlab'
+    #pentester.ssh.password = \
 
     pentester.vbguest.auto_update = false
     pentester.ssh.insert_key = false
