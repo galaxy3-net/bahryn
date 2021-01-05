@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "ub1404" do |pentester|
-    pentester.vm.box = "hashicorp/precise64"
+    pentester.vm.box = "generic/ubuntu1204"
     #pentester.vm.box_version = "2021.01.04-0851"
     # pentester.vm.hostname = "tattoine"
     #pentester.ssh.username = 'vagrant'
