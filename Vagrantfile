@@ -50,8 +50,8 @@ Vagrant.configure("2") do |config|
 #      v.customize ['modifyvm', :id, '--nictype3', 'virtio']
 #      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
     end
-    config.vm.provision "shell", inline: <<-SHELL
-    ifconfig eth0 10.55.56.52 netmask 255.255.255.0 up
+#    config.vm.provision "shell", inline: <<-SHELL
+    # ifconfig eth0 10.55.56.52 netmask 255.255.255.0 up
      #tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      #/usr/local/bin/ready
      #/usr/local/bin/install_pkgs
@@ -62,8 +62,8 @@ Vagrant.configure("2") do |config|
 
     # setup_xrdp
     # setup_vnc
-    ls -l /home/vagrant
-SHELL
+#    ls -l /home/vagrant
+#SHELL
   end
 
 end
