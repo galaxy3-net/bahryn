@@ -3,7 +3,7 @@
 
 #  https://github.com/rapid7/metasploitable3
 
-DESCRIPTION="Description"
+
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     # pentester.vm.hostname = "tattoine"
     #pentester.ssh.username = 'vagrant'
     #pentester.ssh.password = 'vagrant'
-
+    DESCRIPTION="Description"
     pentester.vbguest.auto_update = false
     pentester.ssh.insert_key = false
     pentester.ssh.connect_timeout = 20
