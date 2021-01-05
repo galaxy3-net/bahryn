@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
     pentester.vm.box = "hashicorp/precise64"
     #pentester.vm.box_version = "2021.01.04-0851"
     # pentester.vm.hostname = "tattoine"
-    pentester.ssh.username = 'vagrant'
-    pentester.ssh.password = 'vagrant'
+    #pentester.ssh.username = 'vagrant'
+    #pentester.ssh.password = 'vagrant'
 
     pentester.vbguest.auto_update = false
     pentester.ssh.insert_key = false
