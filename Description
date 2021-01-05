@@ -1,0 +1,6 @@
+Machine: Bahryn (shellshock)
+
+This machine will not work until you log into the Virtualbox console and run the following command as root.
+
+  sudo -s
+  ifconfig eth0 10.55.56.52 netmask 255.255.255.0 up

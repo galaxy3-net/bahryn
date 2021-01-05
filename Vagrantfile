@@ -3,6 +3,8 @@
 
 #  https://github.com/rapid7/metasploitable3
 
+DESCRIPTION="Description"
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -11,7 +13,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
   config.trigger.after :up do |trigger|
-  	trigger.info = "ifconfig ..."
+    trigger.name = "Complete Setup"
+  	trigger.info = File.read(DESCRIPTION)
   end
 
   config.vm.define "ub1404" do |pentester|
@@ -32,6 +35,7 @@ Vagrant.configure("2") do |config|
 
     pentester.vm.provider "virtualbox" do |v|
       v.name = "Bahryn (shellshock)"
+      vb.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
 #      v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
