@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 
     pentester.vm.provider "virtualbox" do |v|
       v.name = "Bahryn (shellshock)"
-      vb.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
+      v.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
 #      v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
