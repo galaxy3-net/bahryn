@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "ub1404" do |pentester|
     pentester.vm.box = "cybersecurity/debian"
-    pentester.vm.box_version = "2021.01.04-0851"
+    #pentester.vm.box_version = "2021.01.04-0851"
     # pentester.vm.hostname = "tattoine"
     #pentester.ssh.username = 'pentesterlab'
     #pentester.ssh.password = \
