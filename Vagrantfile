@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 
   config.trigger.after :up do |trigger|
     trigger.name = "Complete Setup"
-  	trigger.info = File.read(DESCRIPTION)
+  	trigger.info = File.read("Description")
   end
 
   config.vm.define "ub1404" do |pentester|
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     # pentester.vm.hostname = "tattoine"
     #pentester.ssh.username = 'vagrant'
     #pentester.ssh.password = 'vagrant'
-    DESCRIPTION="Description"
+
     pentester.vbguest.auto_update = false
     pentester.ssh.insert_key = false
     pentester.ssh.connect_timeout = 20
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
 
     pentester.vm.provider "virtualbox" do |v|
       v.name = "Bahryn (shellshock)"
-      v.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
+      v.customize ["modifyvm", :id, "--description", File.read("Description")]
 #      v.memory = 2048
 
       #v.customize ['modifyvm', :id, '--nic0', 'intnet']
