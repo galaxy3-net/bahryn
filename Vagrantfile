@@ -12,10 +12,10 @@
 Vagrant.configure("2") do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
-  config.trigger.after :up do |trigger|
-    trigger.name = "Complete Setup"
-  	trigger.info = File.read("Description")
-  end
+#  config.trigger.after :up do |trigger|
+#    trigger.name = "Complete Setup"
+#  	trigger.info = File.read("Description")
+#  end
 
   config.vm.define "ub1404" do |pentester|
     pentester.vm.box = "geerlingguy/ubuntu1204"
