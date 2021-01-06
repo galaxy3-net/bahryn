@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     	nic_type: "virtio"
 
     pentester.vm.provider "virtualbox" do |v|
-      v.name = "Bahryn (shellshock)"
+      v.name = ENV['boxname']
 #      v.customize ["modifyvm", :id, "--description", File.read("Description")]
 #      v.memory = 2048
 
