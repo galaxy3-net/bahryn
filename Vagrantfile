@@ -17,10 +17,10 @@ Vagrant.configure("2") do |config|
 #  	trigger.info = File.read("Description")
 #  end
 
-  pentester.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
-  pentester.vm.provision "file", source: "../../functions", destination: "functions/bin"
-  pentester.vm.provision "file", source: "hosts", destination: "hosts"
-  pentester.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+  config.vm.provision "file", source: "../../functions", destination: "functions/bin"
+  config.vm.provision "file", source: "hosts", destination: "hosts"
+  config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
 
   config.vm.define "ub1404" do |pentester|
