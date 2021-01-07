@@ -33,6 +33,11 @@ Vagrant.configure("2") do |config|
     	virtualbox__intnet: "metasploitable3",
     	nic_type: "virtio"
 
+   pentester.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+   pentester.vm.provision "file", source: "../../functions", destination: "functions/bin"
+   pentester.vm.provision "file", source: "hosts", destination: "hosts"
+   pentester.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+
     pentester.vm.provider "virtualbox" do |v|
       v.name = ENV['boxname']
 #      v.customize ["modifyvm", :id, "--description", File.read("Description")]
