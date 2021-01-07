@@ -75,11 +75,11 @@ SHELL
   end
   config.vm.provision "shell", inline: <<-SHELL
     ln -s /home/vagrant /vagrant
-    apt-get install -y python3
+    apt-get install -y python3 apache2
 SHELL
-  config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "/home/vagrant/playbook.yml"
-    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
-    inventory_path = "/home/vagrant/hosts"
-  end
+#  config.vm.provision "ansible_local" do |ansible|
+#    ansible.playbook = "/home/vagrant/playbook.yml"
+#    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
+#    inventory_path = "/home/vagrant/hosts"
+#  end
 end
