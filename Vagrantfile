@@ -73,9 +73,8 @@ Vagrant.configure("2") do |config|
 #    ls -l /home/vagrant
 SHELL
   end
-      config.vm.provision "shell", inline: <<-SHELL
-      ln -s /home/vagrant /vagrant
-       tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+  config.vm.provision "shell", inline: <<-SHELL
+    ln -s /home/vagrant /vagrant
 SHELL
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
