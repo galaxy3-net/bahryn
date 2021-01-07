@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
     # setup_vnc
 #    ls -l /home/vagrant
 SHELL
-
+  end
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
