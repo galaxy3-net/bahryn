@@ -17,6 +17,12 @@ Vagrant.configure("2") do |config|
 #  	trigger.info = File.read("Description")
 #  end
 
+  pentester.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+  pentester.vm.provision "file", source: "../../functions", destination: "functions/bin"
+  pentester.vm.provision "file", source: "hosts", destination: "hosts"
+  pentester.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+
+
   config.vm.define "ub1404" do |pentester|
     pentester.vm.box = "geerlingguy/ubuntu1204"
     #pentester.vm.box_version = "2021.01.04-0851"
@@ -32,11 +38,6 @@ Vagrant.configure("2") do |config|
     pentester.vm.network "private_network", ip: '10.55.56.52',
     	virtualbox__intnet: "metasploitable3",
     	nic_type: "virtio"
-
-    pentester.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
-    pentester.vm.provision "file", source: "../../functions", destination: "functions/bin"
-    pentester.vm.provision "file", source: "hosts", destination: "hosts"
-    pentester.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
     pentester.vm.provider "virtualbox" do |v|
       v.name = ENV['boxname']
