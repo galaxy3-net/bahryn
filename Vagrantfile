@@ -57,9 +57,10 @@ Vagrant.configure("2") do |config|
 #      v.customize ['modifyvm', :id, '--nicpromisc3', 'allow-all']
     end
     config.vm.provision "shell", inline: <<-SHELL
+    ln -s /home/vagrant /vagrant
     # ifconfig eth0 10.55.56.52 netmask 255.255.255.0 up
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
-     ln -s /home/vagrant /vagrant
+
      #/usr/local/bin/ready
      #/usr/local/bin/install_pkgs
      #/usr/local/bin/pull_repos
@@ -72,6 +73,10 @@ Vagrant.configure("2") do |config|
 #    ls -l /home/vagrant
 SHELL
   end
+      config.vm.provision "shell", inline: <<-SHELL
+      ln -s /home/vagrant /vagrant
+       tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+SHELL
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
